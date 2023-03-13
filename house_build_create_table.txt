@@ -1,0 +1,27 @@
+CREATE TABLE materials (
+	id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	shortcode VARCHAR(220) UNIQUE,
+	description VARCHAR(400),
+	seller VARCHAR(220),
+	upc VARCHAR(220),
+	model VARCHAR(220),
+	sku VARCHAR(220),
+	cost DECIMAL(8,2),
+	url VARCHAR(220)
+)
+
+
+CREATE TABLE pieces (
+	id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	shortcode VARCHAR(220),
+	description VARCHAR(400),
+	notes VARCHAR(1000),
+	positionX NUMERIC(14,5),
+	positionY NUMERIC(14,5),
+	positionZ NUMERIC(14,5),
+	scaleX NUMERIC(14,5),
+	scaleY NUMERIC(14,5),
+	scaleZ NUMERIC(14,5),
+	cuts VARCHAR(1000),
+	FOREIGN KEY (shortcode) REFERENCES materials(shortcode)
+)
